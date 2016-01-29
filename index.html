@@ -35,10 +35,32 @@
     #btn:hover{
       opacity: 0.8;
     }
+    #btn.pushed{
+      margin-top: 32px;
+      box-shadow: 0.2px 0 #0088cc;
+    }
   </style>
 </head>
 <body>
   <div id = "result">?</div>
   <div id ="btn">あなたの運勢は?</div>
+  <script>
+    (function(){
+      "use strict";
+      document.getElementById('btn').addEventListener('click', function(){
+        var results = ['大吉','小吉','中吉','凶','吉'];
+        var result = Math.floor(Math.random() * results.length);
+        //document.getElementById('result').innerHTML = 'hit';
+        document.getElementById('result').innerHTML = results[result];
+
+      });
+      document.getElementById('btn').addEventListener('mousedown',function(){
+        this.className = 'pushed';
+      });
+      document.getElementById('btn').addEventListener('mouseup',function(){
+        this.className = '';
+      });
+    })();
+  </script>
 </body>
 </html>
